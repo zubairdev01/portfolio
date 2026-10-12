@@ -6,7 +6,7 @@ export default function Hero() {
         <h1>Muhammad<br />Zubair</h1>
         <div className="meta">
           <div>Role<b>Frontend developer<br />CS student</b></div>
-          <div>Location<b>Punjab, Pakistan</b></div>
+          <div>Location<b>Lahore, Pakistan</b></div>
           <div>Portfolio<b>2026</b></div>
         </div>
         <p className="lead">{hero.headline}</p>
