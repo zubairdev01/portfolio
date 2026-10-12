@@ -1,26 +1,54 @@
-# Muhammad Zubair: Portfolio (React + Express)
+# Muhammad Zubair | Portfolio
+
+A personal portfolio website built with React and Express. It showcases my projects, skills and learning notes, with a contact form that sends messages straight to my inbox.
+
+**Live site:** [LIVE_URL]
+
+## Features
+- Dark and light themes that follow the device setting and remember the visitor's choice
+- Project gallery with a keyboard-friendly image viewer
+- Learning section with my Excalidraw study notes
+- Downloadable CV
+- Contact form backed by an Express API (validation, rate limiting, Nodemailer)
+- Responsive, accessible layout
+- All content in one file, so updates are quick
+
+## Tech stack
+| Area | Tools |
+|---|---|
+| Client | React 18, Vite, CSS |
+| Server | Node.js, Express, Nodemailer, express-rate-limit |
+| Hosting | Vercel (client), Render or Railway (API) |
+
+## Project structure
+```
+client/   React app (components, data/content.js, public/images, cv.pdf)
+server/   Express API for the contact form
+```
 
 ## Run locally
 ```bash
-# terminal 1: API
-cd server && npm install && cp .env.example .env   # then fill in SMTP_USER and SMTP_PASS
-npm run dev                                         # http://localhost:5000
+# Terminal 1: API
+cd server
+npm install
+cp .env.example .env    # add your SMTP details
+npm run dev             # http://localhost:5000
 
-# terminal 2: website
-cd client && npm install && npm run dev             # http://localhost:5173
+# Terminal 2: website
+cd client
+npm install
+npm run dev             # http://localhost:5173
 ```
 
-## Edit content
-Everything lives in `client/src/data/content.js`. Images are in `client/public/images`, and your CV is `client/public/cv.pdf`.
-Add a repo link by putting `['View on GitHub', 'https://...']` in a project's `l` array.
+## Update the content
+Edit `client/src/data/content.js` to change text, skills, projects and links. Put new screenshots in `client/public/images/` and replace `client/public/cv.pdf` to update the CV.
 
-## Contact form
-`server/server.js` sends mail with Nodemailer. For Gmail, enable 2-step verification and create an App Password.
-Until SMTP is configured the form shows a clear "not configured" message and the email link still works.
+## Contact form setup
+Create a Gmail App Password and set `SMTP_USER`, `SMTP_PASS` and `MAIL_TO` in `server/.env`. Without them, the form shows a clear "not configured" message.
 
-## Deploy
-- **Option A (simplest):** `cd client && npm run build`, then deploy the whole repo to Render or Railway
-  with start command `cd server && npm install && npm start`. It serves `client/dist` and the API from one URL.
-  Set the `.env` values on the host.
-- **Option B:** client on Vercel (root directory `client`), API on Render. Set `VITE_API_URL` on Vercel to the API URL
-  and `CLIENT_ORIGIN` on the API to your Vercel domain.
+## Deployment
+- Client: import the repo on Vercel and set the Root Directory to `client`.
+- API: host `server/` on Render or Railway, then set `VITE_API_URL` on Vercel and `CLIENT_ORIGIN` on the API.
+
+## Author
+**Muhammad Zubair**: [GitHub](https://github.com/zubairdev01) | [LinkedIn](https://linkedin.com/in/zubairdev01) | zubairdev0@gmail.com
